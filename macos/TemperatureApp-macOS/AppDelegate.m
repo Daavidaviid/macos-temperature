@@ -4,6 +4,9 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTLog.h>
 
+#define WINDOW_WIDTH 500
+#define WINDOW_HEIGHT 600
+
 @interface AppDelegate () <RCTBridgeDelegate>
 
 @property NSStatusItem * statusItem;
@@ -21,7 +24,14 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // Insert code here to initialize your application
   
+  // Window dimensions
+  NSWindow * mainWindow = [[NSApplication sharedApplication] mainWindow];
+  [mainWindow setContentSize:NSSizeFromCGSize(CGSizeMake(WINDOW_WIDTH, WINDOW_HEIGHT))];
+  [mainWindow setMaxSize:NSSizeFromCGSize(CGSizeMake(WINDOW_WIDTH, WINDOW_HEIGHT))];
+  [mainWindow setMinSize:NSSizeFromCGSize(CGSizeMake(WINDOW_WIDTH, WINDOW_HEIGHT))];
+  
   // Adding tab bar icon
+  // https://caseybrant.com/2019/02/20/macos-menu-bar-extras.html
   NSStatusBar * statusBar = NSStatusBar.systemStatusBar;
   self.statusItem = [statusBar statusItemWithLength:NSSquareStatusItemLength];
   [self.statusItem.button setTitle:@"💨"];

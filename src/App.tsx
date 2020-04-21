@@ -9,7 +9,6 @@
  */
 
 import React from 'react';
-import { StatusBar } from 'react-native';
 import { Main } from '@screens';
 
 declare const global: { HermesInternal: null | {} };
@@ -17,7 +16,6 @@ declare const global: { HermesInternal: null | {} };
 export const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
       <Main />
     </>
   );

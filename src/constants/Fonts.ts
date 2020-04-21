@@ -5,4 +5,9 @@ export const Fonts = StyleSheet.create({
     fontSize: 20,
     letterSpacing: 0,
   },
+  caption: {
+    fontSize: 15,
+    letterSpacing: 0,
+    fontStyle: 'italic',
+  },
 });

@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0496A360A6F874C295C73D4B /* libPods-Shared-TemperatureApp-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DBC48FD7C3AEF576C57B21 /* libPods-Shared-TemperatureApp-macOS.a */; };
+		4FF973DC244F563F00A33032 /* TemperatureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973DB244F563F00A33032 /* TemperatureManager.m */; };
+		4FF973E3244F675700A33032 /* smc.c in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973E2244F675700A33032 /* smc.c */; };
+		4FF973FA244F6B9D00A33032 /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973ED244F6B9B00A33032 /* NSFileManager+DirectoryLocations.m */; };
+		4FF973FB244F6B9D00A33032 /* SystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973EF244F6B9C00A33032 /* SystemVersion.m */; };
+		4FF973FC244F6B9D00A33032 /* FanControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973F2244F6B9C00A33032 /* FanControl.m */; };
+		4FF973FD244F6B9D00A33032 /* StatusItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973F4244F6B9C00A33032 /* StatusItemWindow.m */; };
+		4FF973FE244F6B9D00A33032 /* Power.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973F6244F6B9D00A33032 /* Power.m */; };
 		5142014D2437B4B30078DB4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5142014C2437B4B30078DB4F /* AppDelegate.m */; };
 		514201502437B4B30078DB4F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5142014F2437B4B30078DB4F /* ViewController.m */; };
 		514201522437B4B40078DB4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514201512437B4B40078DB4F /* Assets.xcassets */; };
@@ -24,6 +31,25 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TemperatureApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4FF973DA244F562700A33032 /* TemperatureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemperatureManager.h; sourceTree = "<group>"; };
+		4FF973DB244F563F00A33032 /* TemperatureManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemperatureManager.m; sourceTree = "<group>"; };
+		4FF973E1244F675700A33032 /* smc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smc.h; sourceTree = "<group>"; };
+		4FF973E2244F675700A33032 /* smc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = smc.c; sourceTree = "<group>"; };
+		4FF973EB244F6B9B00A33032 /* SystemVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemVersion.h; sourceTree = "<group>"; };
+		4FF973EC244F6B9B00A33032 /* FanControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FanControl.h; sourceTree = "<group>"; };
+		4FF973ED244F6B9B00A33032 /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
+		4FF973EE244F6B9C00A33032 /* Power.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Power.h; sourceTree = "<group>"; };
+		4FF973EF244F6B9C00A33032 /* SystemVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemVersion.m; sourceTree = "<group>"; };
+		4FF973F0244F6B9C00A33032 /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
+		4FF973F1244F6B9C00A33032 /* MachineDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachineDefaults.h; sourceTree = "<group>"; };
+		4FF973F2244F6B9C00A33032 /* FanControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FanControl.m; sourceTree = "<group>"; };
+		4FF973F4244F6B9C00A33032 /* StatusItemWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusItemWindow.m; sourceTree = "<group>"; };
+		4FF973F5244F6B9D00A33032 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4FF973F6244F6B9D00A33032 /* Power.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Power.m; sourceTree = "<group>"; };
+		4FF973F7244F6B9D00A33032 /* StatusItemWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusItemWindow.h; sourceTree = "<group>"; };
+		4FF97400244F6BC200A33032 /* smcWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smcWrapper.h; sourceTree = "<group>"; };
+		4FF97401244F6BC300A33032 /* MachineDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MachineDefaults.m; sourceTree = "<group>"; };
+		4FF97402244F6BC400A33032 /* smcWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = smcWrapper.m; sourceTree = "<group>"; };
 		514201492437B4B30078DB4F /* TemperatureApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemperatureApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5142014B2437B4B30078DB4F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5142014C2437B4B30078DB4F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -91,9 +117,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4FF973DD244F628900A33032 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				4FF973E1244F675700A33032 /* smc.h */,
+				4FF973E2244F675700A33032 /* smc.c */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		4FF973FF244F6BA400A33032 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4FF973F5244F6B9D00A33032 /* Constants.h */,
+				4FF973EC244F6B9B00A33032 /* FanControl.h */,
+				4FF973F2244F6B9C00A33032 /* FanControl.m */,
+				4FF973F1244F6B9C00A33032 /* MachineDefaults.h */,
+				4FF97401244F6BC300A33032 /* MachineDefaults.m */,
+				4FF973F0244F6B9C00A33032 /* NSFileManager+DirectoryLocations.h */,
+				4FF973ED244F6B9B00A33032 /* NSFileManager+DirectoryLocations.m */,
+				4FF973EE244F6B9C00A33032 /* Power.h */,
+				4FF973F6244F6B9D00A33032 /* Power.m */,
+				4FF97400244F6BC200A33032 /* smcWrapper.h */,
+				4FF97402244F6BC400A33032 /* smcWrapper.m */,
+				4FF973F7244F6B9D00A33032 /* StatusItemWindow.h */,
+				4FF973F4244F6B9C00A33032 /* StatusItemWindow.m */,
+				4FF973EB244F6B9B00A33032 /* SystemVersion.h */,
+				4FF973EF244F6B9C00A33032 /* SystemVersion.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		5142014A2437B4B30078DB4F /* TemperatureApp-macOS */ = {
 			isa = PBXGroup;
 			children = (
+				4FF973FF244F6BA400A33032 /* Classes */,
+				4FF973DD244F628900A33032 /* C */,
 				5142014B2437B4B30078DB4F /* AppDelegate.h */,
 				5142014C2437B4B30078DB4F /* AppDelegate.m */,
 				5142014E2437B4B30078DB4F /* ViewController.h */,
@@ -103,6 +162,8 @@
 				514201562437B4B40078DB4F /* Info.plist */,
 				514201572437B4B40078DB4F /* main.m */,
 				514201592437B4B40078DB4F /* TemperatureApp.entitlements */,
+				4FF973DA244F562700A33032 /* TemperatureManager.h */,
+				4FF973DB244F563F00A33032 /* TemperatureManager.m */,
 			);
 			path = "TemperatureApp-macOS";
 			sourceTree = "<group>";
@@ -233,9 +294,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF973DC244F563F00A33032 /* TemperatureManager.m in Sources */,
+				4FF973FD244F6B9D00A33032 /* StatusItemWindow.m in Sources */,
+				4FF973FA244F6B9D00A33032 /* NSFileManager+DirectoryLocations.m in Sources */,
+				4FF973FE244F6B9D00A33032 /* Power.m in Sources */,
 				514201502437B4B30078DB4F /* ViewController.m in Sources */,
+				4FF973E3244F675700A33032 /* smc.c in Sources */,
 				514201582437B4B40078DB4F /* main.m in Sources */,
+				4FF973FC244F6B9D00A33032 /* FanControl.m in Sources */,
 				5142014D2437B4B30078DB4F /* AppDelegate.m in Sources */,
+				4FF973FB244F6B9D00A33032 /* SystemVersion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

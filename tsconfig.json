@@ -42,7 +42,9 @@
     "paths": {
       "@screens": ["./src/screens/index"],
       "@components": ["./src/components/index"],
-      "@constants": ["./src/constants/index"]
+      "@constants": ["./src/constants/index"],
+      "@i18n": ["./src/i18n/index"],
+      "@modules": ["./src/modules/index"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
