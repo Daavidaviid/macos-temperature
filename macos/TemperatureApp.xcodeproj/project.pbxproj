@@ -15,6 +15,8 @@
 		4FF973FC244F6B9D00A33032 /* FanControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973F2244F6B9C00A33032 /* FanControl.m */; };
 		4FF973FD244F6B9D00A33032 /* StatusItemWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973F4244F6B9C00A33032 /* StatusItemWindow.m */; };
 		4FF973FE244F6B9D00A33032 /* Power.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF973F6244F6B9D00A33032 /* Power.m */; };
+		4FF97403244F701900A33032 /* MachineDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF97401244F6BC300A33032 /* MachineDefaults.m */; };
+		4FF97404244F703000A33032 /* smcWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FF97402244F6BC400A33032 /* smcWrapper.m */; };
 		5142014D2437B4B30078DB4F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5142014C2437B4B30078DB4F /* AppDelegate.m */; };
 		514201502437B4B30078DB4F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5142014F2437B4B30078DB4F /* ViewController.m */; };
 		514201522437B4B40078DB4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514201512437B4B40078DB4F /* Assets.xcassets */; };
@@ -303,7 +305,9 @@
 				514201582437B4B40078DB4F /* main.m in Sources */,
 				4FF973FC244F6B9D00A33032 /* FanControl.m in Sources */,
 				5142014D2437B4B30078DB4F /* AppDelegate.m in Sources */,
+				4FF97403244F701900A33032 /* MachineDefaults.m in Sources */,
 				4FF973FB244F6B9D00A33032 /* SystemVersion.m in Sources */,
+				4FF97404244F703000A33032 /* smcWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
