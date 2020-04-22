@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { Colors, Fonts, Dim } from '@constants';
 import { Button } from '@components';
 import { i18n } from '@i18n';
-import { Temperature } from '@modules';
+import { Fan } from '@modules';
 
 interface Props {}
 
 export const Main: React.FC<Props> = ({}) => {
-  const getTemp = () => {
-    Temperature.getTemperatures({
-      message: 'David',
-    });
+  useEffect(() => {
+    Fan.initialize();
+  }, []);
+
+  const getFans = async () => {
+    try {
+      const fans = await Fan.getFans();
+      console.log({ fans });
+    } catch (error) {
+      console.warn(error);
+    }
   };
 
   return (
@@ -20,7 +27,7 @@ export const Main: React.FC<Props> = ({}) => {
         <Text style={styles.title}>Écran principal</Text>
       </View>
       <View style={styles.content}>
-        <Button label={i18n.main.seeTemp} onPress={getTemp} />
+        <Button label={i18n.main.seeTemp} onPress={getFans} />
       </View>
     </View>
   );

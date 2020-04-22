@@ -31,13 +31,13 @@
 
 +(void) cleanUp;
 
-+(int) get_fan_rpm:(int)fan_number;
 +(float) get_maintemp;
 +(float) get_mptemp;
 +(int) get_fan_num;
++(int) get_fan_rpm:(int)fan_number;
 +(int) get_min_speed:(int)fan_number;
 +(int) get_max_speed:(int)fan_number;
-+(void)setKey_external:(NSString *)key value:(NSString *)value;
 +(NSString*) get_fan_descr:(int)fan_number;
++(void)setKey_external:(NSString *)key value:(NSString *)value;
 
 @end

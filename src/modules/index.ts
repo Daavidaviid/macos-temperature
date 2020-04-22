@@ -1,1 +1,1 @@
-export * from './Temperature';
+export * from './Fan';
