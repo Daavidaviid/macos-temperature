@@ -45,6 +45,7 @@ RCT_EXPORT_METHOD(getFans:(NSDictionary *)config
     
     NSMutableDictionary *fan =  [[NSMutableDictionary alloc] init];
     [fan setValue:description forKey:@"description"];
+    [fan setValue:[NSNumber numberWithInt:i] forKey:@"index"];
     
     if ([rpm intValue] != -1) {
       [fan setValue:rpm forKey:@"rpm"];
@@ -60,6 +61,25 @@ RCT_EXPORT_METHOD(getFans:(NSDictionary *)config
   }
   
   resolve(result);
+}
+
+RCT_EXPORT_METHOD(setFanSpeed:(NSDictionary *)config
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+  
+  NSNumber * rpm = [config objectForKey:@"rpm"];
+  NSNumber * fanIndex = [config objectForKey:@"fanIndex"];
+  
+  int minSpeed = [smcWrapper get_min_speed:[fanIndex intValue]];
+  int maxSpeed = [smcWrapper get_max_speed:[fanIndex intValue]];
+  
+  if ([rpm intValue] < minSpeed || [rpm intValue] > maxSpeed) {
+    NSError *error = [NSError errorWithDomain:@"com.fanapp" code:200 userInfo:@{@"Error reason": @"rpm value is not included between minSpeed and maxSpeed"}];
+    reject(@"no_events", @"There were no events", error);
+  }
+  
+  RCTLog(@"Setting speed to %@ for %@", rpm, fanIndex);
 }
 
 @end

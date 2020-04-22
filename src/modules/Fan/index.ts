@@ -1,4 +1,9 @@
-import { Fan as FanType, IFanManager, InitializeResult } from './IFanManager';
+import {
+  Fan as FanType,
+  IFanManager,
+  InitializeResult,
+  SetFanSpeedConfig,
+} from './IFanManager';
 class FanManager implements IFanManager {
   nativeModule: any;
 
@@ -11,7 +16,14 @@ class FanManager implements IFanManager {
    * @description Blabla Blabla
    * @param config is used to configure
    */
-  getFans(): Promise<FanType[]> {
+  getFans({}: SetFanSpeedConfig): Promise<FanType[]> {
+    throw new Error('FanManager using default.');
+  }
+  /**
+   * @description Blabla Blabla
+   * @param config is used to configure
+   */
+  setFanSpeed({}: SetFanSpeedConfig): Promise<FanType> {
     throw new Error('FanManager using default.');
   }
 }

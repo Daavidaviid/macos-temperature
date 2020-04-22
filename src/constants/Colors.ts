@@ -5,4 +5,6 @@ export const Colors = {
   primary: '#4287f5',
   red: 'red',
   green: 'green',
+  slider: '#81c7f0',
+  border: '#f0f0f0',
 };

@@ -1,31 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Text, Slider } from 'react-native';
+import React, { useEffect, useCallback } from 'react';
+import { View, StyleSheet, Text } from 'react-native';
 import { Colors, Fonts, Dim } from '@constants';
 import { i18n } from '@i18n';
-import { FanModule, Fan } from '@modules';
+import { FanModule } from '@modules';
+import { Fan } from '@components';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFans, GlobalState } from '@state';
 
 interface Props {}
 
 export const Main: React.FC<Props> = ({}) => {
-  const [fans, setFans] = useState<Fan[]>();
+  const dispatch = useDispatch();
+  const fans = useSelector((state: GlobalState) => state.fans);
 
   useEffect(() => {
     const initialize = async () => {
       try {
-        const res = await FanModule.initialize();
-        console.log({ res });
+        await FanModule.initialize();
         const fans = await FanModule.getFans();
-        setFans(fans);
-        console.log({ fans });
+        dispatch(setFans(fans));
       } catch (error) {
         console.warn(error);
       }
     };
     initialize();
-  }, []);
+  }, [dispatch]);
 
-  const onSlidingComplete = (fanIndex: number) => () => {
-    // TODO
+  const renderFans = () => {
+    return Object.keys(fans.Map)
+      .filter((fanIndex) => !!fans.Map[fanIndex].rpm)
+      .map((fanIndex) => <Fan key={`${fanIndex}`} fan={fans.Map[fanIndex]} />);
   };
 
   return (
@@ -33,25 +37,7 @@ export const Main: React.FC<Props> = ({}) => {
       <View style={styles.header}>
         <Text style={styles.title}>{i18n.main.title}</Text>
       </View>
-      <View style={styles.content}>
-        {fans
-          ?.filter((fan) => !!fan.rpm)
-          .map((fan, index) => (
-            <View key={`fan_${index}`}>
-              <Text>{fan.description}</Text>
-              <Text>{fan.maxSpeed}</Text>
-              <Text>{fan.minSpeed}</Text>
-              <Text>{fan.rpm}</Text>
-              <Slider
-                minimumValue={fan.minSpeed}
-                maximumValue={fan.maxSpeed}
-                minimumTrackTintColor={Colors.red}
-                maximumTrackTintColor={Colors.green}
-                onSlidingComplete={onSlidingComplete(index)}
-              />
-            </View>
-          ))}
-      </View>
+      <View style={styles.content}>{renderFans()}</View>
     </View>
   );
 };
@@ -75,6 +61,6 @@ const styles = StyleSheet.create({
     color: Colors.white,
   },
   content: {
-    padding: Dim.margins.d2,
+    paddingVertical: Dim.margins.d2,
   },
 });

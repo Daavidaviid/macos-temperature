@@ -10,4 +10,9 @@ export const Fonts = StyleSheet.create({
     letterSpacing: 0,
     fontStyle: 'italic',
   },
+  standard: {
+    fontSize: 14,
+    fontWeight: '300',
+    letterSpacing: 0,
+  },
 });

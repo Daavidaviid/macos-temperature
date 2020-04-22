@@ -4,6 +4,7 @@ import {
   Fan as FanType,
   GetFansConfig,
   InitializeResult,
+  SetFanSpeedConfig,
 } from './IFanManager';
 
 class FanManager implements IFanManager {
@@ -23,6 +24,14 @@ class FanManager implements IFanManager {
    */
   getFans(config: GetFansConfig): Promise<FanType[]> {
     return this.nativeModule.getFans(config);
+  }
+
+  /**
+   * @description Blabla Blabla
+   * @param config is used to configure
+   */
+  setFanSpeed(config: SetFanSpeedConfig): Promise<FanType> {
+    return this.nativeModule.setFanSpeed(config);
   }
 }
 
