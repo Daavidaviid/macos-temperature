@@ -2,9 +2,9 @@ import { NativeModules } from 'react-native';
 import {
   IFanManager,
   Fan as FanType,
-  GetFansConfig,
   InitializeResult,
   SetFanSpeedConfig,
+  CloseResult,
 } from './IFanManager';
 
 class FanManager implements IFanManager {
@@ -18,12 +18,16 @@ class FanManager implements IFanManager {
     return this.nativeModule.initialize();
   }
 
+  close(): Promise<CloseResult> {
+    return this.nativeModule.close();
+  }
+
   /**
    * @description Blabla Blabla
    * @param config is used to configure
    */
-  getFans(config: GetFansConfig): Promise<FanType[]> {
-    return this.nativeModule.getFans(config);
+  getFans(): Promise<FanType[]> {
+    return this.nativeModule.getFans();
   }
 
   /**

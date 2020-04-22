@@ -5,5 +5,6 @@ export const fr = {
     minSpeed: 'Vitesse de rotation minimale',
     maxSpeed: 'Vitesse de rotation maximale',
     fanIndex: 'Numéro du ventilateur',
+    refresh: 'Actualiser',
   },
 };

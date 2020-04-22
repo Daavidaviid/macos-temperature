@@ -5,16 +5,16 @@ export interface Fan {
   description: string;
   index: number;
 }
-
-export interface GetFansConfig {}
 export interface SetFanSpeedConfig {
   rpm: number;
   fanIndex: number;
 }
 export interface InitializeResult {}
+export interface CloseResult {}
 
 export interface IFanManager {
   initialize(): Promise<InitializeResult>;
-  getFans(config: GetFansConfig): Promise<Fan[]>;
+  close(): Promise<CloseResult>;
+  getFans(): Promise<Fan[]>;
   setFanSpeed(config: SetFanSpeedConfig): Promise<Fan>;
 }

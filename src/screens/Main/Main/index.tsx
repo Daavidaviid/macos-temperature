@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from 'react-native';
 import { Colors, Fonts, Dim } from '@constants';
 import { i18n } from '@i18n';
 import { FanModule } from '@modules';
-import { Fan } from '@components';
+import { Fan, Button } from '@components';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFans, GlobalState } from '@state';
 
@@ -12,6 +12,11 @@ interface Props {}
 export const Main: React.FC<Props> = ({}) => {
   const dispatch = useDispatch();
   const fans = useSelector((state: GlobalState) => state.fans);
+
+  const loadFansData = useCallback(async () => {
+    const fans = await FanModule.getFans();
+    dispatch(setFans(fans));
+  }, [dispatch]);
 
   useEffect(() => {
     const initialize = async () => {
@@ -23,7 +28,12 @@ export const Main: React.FC<Props> = ({}) => {
         console.warn(error);
       }
     };
+
     initialize();
+
+    return () => {
+      FanModule.close();
+    };
   }, [dispatch]);
 
   const renderFans = () => {
@@ -38,6 +48,11 @@ export const Main: React.FC<Props> = ({}) => {
         <Text style={styles.title}>{i18n.main.title}</Text>
       </View>
       <View style={styles.content}>{renderFans()}</View>
+      <Button
+        style={styles.button}
+        label={i18n.main.refresh}
+        onPress={loadFansData}
+      />
     </View>
   );
 };
@@ -62,5 +77,8 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingVertical: Dim.margins.d2,
+  },
+  button: {
+    marginHorizontal: Dim.margins.d2,
   },
 });

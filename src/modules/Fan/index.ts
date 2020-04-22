@@ -3,12 +3,18 @@ import {
   IFanManager,
   InitializeResult,
   SetFanSpeedConfig,
+  CloseResult,
 } from './IFanManager';
 class FanManager implements IFanManager {
   nativeModule: any;
 
   constructor() {}
+
   initialize(): Promise<InitializeResult> {
+    throw new Error('FanManager using default.');
+  }
+
+  close(): Promise<CloseResult> {
     throw new Error('FanManager using default.');
   }
 
@@ -16,7 +22,7 @@ class FanManager implements IFanManager {
    * @description Blabla Blabla
    * @param config is used to configure
    */
-  getFans({}: SetFanSpeedConfig): Promise<FanType[]> {
+  getFans(): Promise<FanType[]> {
     throw new Error('FanManager using default.');
   }
   /**

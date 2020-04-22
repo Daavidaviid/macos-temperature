@@ -26,8 +26,17 @@ RCT_EXPORT_METHOD(initialize:(RCTPromiseResolveBlock)resolve
   resolve(result);
 }
 
-RCT_EXPORT_METHOD(getFans:(NSDictionary *)config
-                  resolver:(RCTPromiseResolveBlock)resolve
+RCT_EXPORT_METHOD(close:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+  [smcWrapper cleanUp];
+  NSDictionary * result = @{
+    @"result": @YES,
+  };
+  resolve(result);
+}
+
+RCT_EXPORT_METHOD(getFans:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
   //  NSString * message = [config objectForKey:@"message"];
