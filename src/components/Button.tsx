@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, StyleProp, ViewStyle } from 'react-native';
+import { StyleSheet, Text, StyleProp, ViewStyle } from 'react-native';
 import { Colors, Dim, Fonts } from '@constants';
 import { Pressable } from '@components';
 
@@ -27,5 +27,6 @@ const styles = StyleSheet.create({
   label: {
     ...Fonts.caption,
     color: Colors.white,
+    textAlign: 'center',
   },
 });

@@ -1,9 +1,9 @@
-import { Fan as FanType, IFanManager } from './IFanManager';
+import { Fan as FanType, IFanManager, InitializeResult } from './IFanManager';
 class FanManager implements IFanManager {
   nativeModule: any;
 
   constructor() {}
-  initialize(): void {
+  initialize(): Promise<InitializeResult> {
     throw new Error('FanManager using default.');
   }
 
@@ -16,4 +16,5 @@ class FanManager implements IFanManager {
   }
 }
 
-export const Fan = new FanManager();
+export const FanModule = new FanManager();
+export * from './IFanManager';

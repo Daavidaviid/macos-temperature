@@ -6,8 +6,9 @@ export interface Fan {
 }
 
 export interface GetFansConfig {}
+export interface InitializeResult {}
 
 export interface IFanManager {
-  initialize(): void;
+  initialize(): Promise<InitializeResult>;
   getFans(config: GetFansConfig): Promise<Fan[]>;
 }

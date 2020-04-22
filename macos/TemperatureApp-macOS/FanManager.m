@@ -16,21 +16,25 @@
 // To export a module named FanManager
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(initialize)
+RCT_EXPORT_METHOD(initialize:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
 {
   [smcWrapper init];
+  NSDictionary * result = @{
+    @"result": @YES,
+  };
+  resolve(result);
 }
 
 RCT_EXPORT_METHOD(getFans:(NSDictionary *)config
-                  findEventsWithResolver:(RCTPromiseResolveBlock)resolve
+                  resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  NSString * message = [config objectForKey:@"message"];
-  RCTLog(@"Received message : %@", message);
+  //  NSString * message = [config objectForKey:@"message"];
+  //  RCTLog(@"Received message : %@", message);
   
   // https://github.com/hholtmann/smcFanControl/tree/master/Classesa
   NSNumber *fans = [NSNumber numberWithInt: [smcWrapper get_fan_num]];
-  RCTLog(@"Number of fans : %@", fans);
   
   NSMutableArray *result = [[NSMutableArray alloc] init];
   for(int i = 0; i <= [fans intValue]; i++) {
@@ -53,12 +57,6 @@ RCT_EXPORT_METHOD(getFans:(NSDictionary *)config
     }
     
     [result addObject:fan];
-//    [result addObject:@{
-//      @"rpm": rpm,
-//      @"minSpeed": minSpeed,
-//      @"maxSpeed": maxSpeed,
-//      @"description": description,
-//    }];
   }
   
   resolve(result);

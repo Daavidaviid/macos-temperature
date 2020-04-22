@@ -1,33 +1,56 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet, Text, Slider } from 'react-native';
 import { Colors, Fonts, Dim } from '@constants';
-import { Button } from '@components';
 import { i18n } from '@i18n';
-import { Fan } from '@modules';
+import { FanModule, Fan } from '@modules';
 
 interface Props {}
 
 export const Main: React.FC<Props> = ({}) => {
+  const [fans, setFans] = useState<Fan[]>();
+
   useEffect(() => {
-    Fan.initialize();
+    const initialize = async () => {
+      try {
+        const res = await FanModule.initialize();
+        console.log({ res });
+        const fans = await FanModule.getFans();
+        setFans(fans);
+        console.log({ fans });
+      } catch (error) {
+        console.warn(error);
+      }
+    };
+    initialize();
   }, []);
 
-  const getFans = async () => {
-    try {
-      const fans = await Fan.getFans();
-      console.log({ fans });
-    } catch (error) {
-      console.warn(error);
-    }
+  const onSlidingComplete = (fanIndex: number) => () => {
+    // TODO
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Écran principal</Text>
+        <Text style={styles.title}>{i18n.main.title}</Text>
       </View>
       <View style={styles.content}>
-        <Button label={i18n.main.seeTemp} onPress={getFans} />
+        {fans
+          ?.filter((fan) => !!fan.rpm)
+          .map((fan, index) => (
+            <View key={`fan_${index}`}>
+              <Text>{fan.description}</Text>
+              <Text>{fan.maxSpeed}</Text>
+              <Text>{fan.minSpeed}</Text>
+              <Text>{fan.rpm}</Text>
+              <Slider
+                minimumValue={fan.minSpeed}
+                maximumValue={fan.maxSpeed}
+                minimumTrackTintColor={Colors.red}
+                maximumTrackTintColor={Colors.green}
+                onSlidingComplete={onSlidingComplete(index)}
+              />
+            </View>
+          ))}
       </View>
     </View>
   );
@@ -49,6 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.orange,
     paddingHorizontal: Dim.margins.d2,
     paddingVertical: Dim.margins.d1,
+    color: Colors.white,
   },
   content: {
     padding: Dim.margins.d2,

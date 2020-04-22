@@ -1,5 +1,10 @@
 import { NativeModules } from 'react-native';
-import { IFanManager, Fan as FanType, GetFansConfig } from './IFanManager';
+import {
+  IFanManager,
+  Fan as FanType,
+  GetFansConfig,
+  InitializeResult,
+} from './IFanManager';
 
 class FanManager implements IFanManager {
   nativeModule: any;
@@ -8,8 +13,8 @@ class FanManager implements IFanManager {
     this.nativeModule = NativeModules.FanManager;
   }
 
-  initialize(): void {
-    this.nativeModule.initialize();
+  initialize(): Promise<InitializeResult> {
+    return this.nativeModule.initialize();
   }
 
   /**
@@ -21,4 +26,4 @@ class FanManager implements IFanManager {
   }
 }
 
-export const Fan = new FanManager();
+export const FanModule = new FanManager();

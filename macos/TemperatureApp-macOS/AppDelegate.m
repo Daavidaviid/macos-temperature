@@ -24,11 +24,12 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   // Insert code here to initialize your application
   
-  // Window dimensions
+  // Window configuration
   NSWindow * mainWindow = [[NSApplication sharedApplication] mainWindow];
   [mainWindow setContentSize:NSSizeFromCGSize(CGSizeMake(WINDOW_WIDTH, WINDOW_HEIGHT))];
   [mainWindow setMaxSize:NSSizeFromCGSize(CGSizeMake(WINDOW_WIDTH, WINDOW_HEIGHT))];
   [mainWindow setMinSize:NSSizeFromCGSize(CGSizeMake(WINDOW_WIDTH, WINDOW_HEIGHT))];
+  [mainWindow center];
   
   // Adding tab bar icon
   // https://caseybrant.com/2019/02/20/macos-menu-bar-extras.html

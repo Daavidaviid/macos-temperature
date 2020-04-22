@@ -1,6 +1,6 @@
 export const fr = {
   main: {
-    title: 'Temperature App',
-    seeTemp: 'Voir les températures',
+    title: 'Manager de ventilateurs',
+    seeFans: 'Voir les ventilateurs',
   },
 };
