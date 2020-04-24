@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import { Colors, Fonts, Dim } from '@constants';
 import { i18n } from '@i18n';
 import { FanModule } from '@modules';
@@ -66,7 +66,9 @@ export const Main: React.FC<Props> = ({}) => {
       <View style={styles.header}>
         <Text style={styles.title}>{i18n.main.title}</Text>
       </View>
-      <View style={styles.content}>{renderFans()}</View>
+      <ScrollView contentContainerStyle={styles.content}>
+        {renderFans()}
+      </ScrollView>
       <Button style={styles.button} label="Refresh" onPress={loadData} />
       <Button style={styles.button} label="Ask rights" onPress={askRights} />
     </View>

@@ -4,8 +4,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTLog.h>
 
-#define WINDOW_WIDTH 500
-#define WINDOW_HEIGHT 600
+#define WINDOW_WIDTH 400
+#define WINDOW_HEIGHT 500
 
 @interface AppDelegate () <RCTBridgeDelegate>
 
@@ -29,6 +29,7 @@
   [mainWindow setContentSize:NSSizeFromCGSize(CGSizeMake(WINDOW_WIDTH, WINDOW_HEIGHT))];
   [mainWindow setMinSize:NSSizeFromCGSize(CGSizeMake(WINDOW_WIDTH, WINDOW_HEIGHT))];
   [mainWindow setPreservesContentDuringLiveResize:true];
+  [mainWindow setShowsToolbarButton:false];
   [mainWindow center];
   
   // Adding tab bar icon
