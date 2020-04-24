@@ -32,6 +32,14 @@ class FanManager implements IFanManager {
   setFanSpeed({}: SetFanSpeedConfig): Promise<FanType> {
     throw new Error('FanManager using default.');
   }
+
+  getTemperature(): Promise<number> {
+    throw new Error('FanManager using default.');
+  }
+
+  setRights() {
+    throw new Error('FanManager using default.');
+  }
 }
 
 export const FanModule = new FanManager();

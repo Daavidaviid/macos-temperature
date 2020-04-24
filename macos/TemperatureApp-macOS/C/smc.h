@@ -15,6 +15,7 @@
 #include <string.h>
 #include <IOKit/IOKitLib.h>
 #include <libkern/OSAtomic.h>
+#include <os/lock.h>
 
 /*
  * Apple System Management Control (SMC) Tool

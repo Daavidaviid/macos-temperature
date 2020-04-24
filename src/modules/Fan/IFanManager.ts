@@ -17,4 +17,6 @@ export interface IFanManager {
   close(): Promise<CloseResult>;
   getFans(): Promise<Fan[]>;
   setFanSpeed(config: SetFanSpeedConfig): Promise<Fan>;
+  getTemperature(): Promise<number>;
+  setRights(): void;
 }

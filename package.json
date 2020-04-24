@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "install:macos": "cd macos && pod install",
     "start:macos": "node node_modules/react-native-macos/local-cli/cli.js start --use-react-native-macos",
-    "xcode": "open macos/TemperatureApp.xcworkspace"
+    "xcode": "open macos/TemperatureApp.xcworkspace",
+    "bundle": "node node_modules/react-native-macos/local-cli/cli.js bundle --entry-file index.js --platform native --dev false --bundle-output macos/main.jsbundle --assets-dest macos"
   },
   "dependencies": {
     "react": "16.11.0",

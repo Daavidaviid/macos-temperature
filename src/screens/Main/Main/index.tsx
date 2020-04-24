@@ -13,17 +13,14 @@ export const Main: React.FC<Props> = ({}) => {
   const dispatch = useDispatch();
   const fans = useSelector((state: GlobalState) => state.fans);
 
-  const loadFansData = useCallback(async () => {
-    const fans = await FanModule.getFans();
-    dispatch(setFans(fans));
-  }, [dispatch]);
-
   useEffect(() => {
+    // let intervalId: any;
+
     const initialize = async () => {
       try {
         await FanModule.initialize();
-        const fans = await FanModule.getFans();
-        dispatch(setFans(fans));
+        loadData();
+        // intervalId = setInterval(loadData, 1000);
       } catch (error) {
         console.warn(error);
       }
@@ -33,8 +30,30 @@ export const Main: React.FC<Props> = ({}) => {
 
     return () => {
       FanModule.close();
+      // clearInterval(intervalId);
     };
+  }, []);
+
+  const loadData = useCallback(async () => {
+    try {
+      const [fans, temperature] = await Promise.all([
+        FanModule.getFans(),
+        FanModule.getTemperature(),
+      ]);
+      dispatch(setFans(fans));
+      console.log({ temperature });
+    } catch (error) {
+      console.warn(error);
+    }
   }, [dispatch]);
+
+  const askRights = async () => {
+    try {
+      FanModule.setRights();
+    } catch (error) {
+      console.warn(error);
+    }
+  };
 
   const renderFans = () => {
     return Object.keys(fans.Map)
@@ -48,11 +67,8 @@ export const Main: React.FC<Props> = ({}) => {
         <Text style={styles.title}>{i18n.main.title}</Text>
       </View>
       <View style={styles.content}>{renderFans()}</View>
-      <Button
-        style={styles.button}
-        label={i18n.main.refresh}
-        onPress={loadFansData}
-      />
+      <Button style={styles.button} label="Refresh" onPress={loadData} />
+      <Button style={styles.button} label="Ask rights" onPress={askRights} />
     </View>
   );
 };
@@ -80,5 +96,6 @@ const styles = StyleSheet.create({
   },
   button: {
     marginHorizontal: Dim.margins.d2,
+    marginBottom: Dim.margins.d1,
   },
 });

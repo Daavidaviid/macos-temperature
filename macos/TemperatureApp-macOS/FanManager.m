@@ -10,16 +10,22 @@
 #import <React/RCTLog.h>
 #import "FanManager.h"
 #import "smcWrapper.h"
+#import "FanControl.h"
 
 @implementation FanManager
 
 // To export a module named FanManager
 RCT_EXPORT_MODULE();
 
++ (BOOL)requiresMainQueueSetup
+{
+  return YES;  // only do this if your module initialization relies on calling UIKit!
+}
+
 RCT_EXPORT_METHOD(initialize:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject)
 {
-  [smcWrapper init];
+  [FanControl initialize];
   NSDictionary * result = @{
     @"result": @YES,
   };
@@ -42,7 +48,7 @@ RCT_EXPORT_METHOD(getFans:(RCTPromiseResolveBlock)resolve
   //  NSString * message = [config objectForKey:@"message"];
   //  RCTLog(@"Received message : %@", message);
   
-  // https://github.com/hholtmann/smcFanControl/tree/master/Classesa
+  // https://github.com/hholtmann/smcFanControl/tree/master/Classes
   NSNumber *fans = [NSNumber numberWithInt: [smcWrapper get_fan_num]];
   
   NSMutableArray *result = [[NSMutableArray alloc] init];
@@ -91,4 +97,16 @@ RCT_EXPORT_METHOD(setFanSpeed:(NSDictionary *)config
   RCTLog(@"Setting speed to %@ for %@", rpm, fanIndex);
 }
 
+RCT_EXPORT_METHOD(getTemperature:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+  NSNumber * temperature = [NSNumber numberWithFloat:[smcWrapper get_mptemp]];
+
+  resolve(temperature);
+}
+
+RCT_EXPORT_METHOD(setRights)
+{
+  [FanControl setRights];
+}
 @end

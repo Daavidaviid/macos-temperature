@@ -37,6 +37,14 @@ class FanManager implements IFanManager {
   setFanSpeed(config: SetFanSpeedConfig): Promise<FanType> {
     return this.nativeModule.setFanSpeed(config);
   }
+
+  getTemperature(): Promise<number> {
+    return this.nativeModule.getTemperature();
+  }
+
+  setRights() {
+    return this.nativeModule.setRights();
+  }
 }
 
 export const FanModule = new FanManager();
